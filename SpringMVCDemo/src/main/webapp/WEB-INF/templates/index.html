@@ -6,5 +6,15 @@
 </head>
 <body>
     <h1>Hello world!</h1>
+    <a th:href="@{/testMapping}">测试</a>
+    <form th:action="@{/test/testMethod}" method="get">
+        <input type="submit" value="测试RequestMapping的Method属性（method=get）">
+    </form>
+    <form th:action="@{/test/testMethod}" method="post">
+        <input type="submit" value="测试RequestMapping的Method属性（method=post）">
+    </form>
+    <a th:href="@{/test/testParams?username=ylei}">测试RequestMapping的参数(username=ylei1)</a><br>
+    <a th:href="@{/test/testParams?password=12345}">测试RequestMapping的参数(password=12345)</a><br>
+    <a th:href="@{/test/testParams?username=ylei&password=12345}">测试RequestMapping的参数(username=ylei1,password=12345)</a><br>
 </body>
 </html>
