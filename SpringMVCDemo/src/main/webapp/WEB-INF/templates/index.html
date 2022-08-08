@@ -15,6 +15,10 @@
     </form>
     <a th:href="@{/test/testParams?username=ylei}">测试RequestMapping的参数(username=ylei1)</a><br>
     <a th:href="@{/test/testParams?password=12345}">测试RequestMapping的参数(password=12345)</a><br>
-    <a th:href="@{/test/testParams?username=ylei&password=12345}">测试RequestMapping的参数(username=ylei1,password=12345)</a><br>
+    <a th:href="@{/test/testGetParams?username=ylei&password=12345}">测试获取请求参数(username=ylei1,password=12345)</a><br>
+    <a th:href="@{/test/testRestful/1}">测试Restful API</a><br>
+    <a th:href="@{/test/testRestful/1/ylei1}">测试Restful API(id+username)</a><br>
+    <a th:href="@{/test/testCookie}">测试Cookie</a><br>
+    <a th:href="@{/test/testGetParamsUsePOJO?username=ylei&password=12345}">测试通过POJO获取请求参数(username=ylei1,password=12345)</a><br>
 </body>
 </html>
