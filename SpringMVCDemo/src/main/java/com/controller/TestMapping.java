@@ -1,11 +1,15 @@
 package com.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import java.util.Map;
 
 
 @Controller
@@ -53,6 +57,40 @@ public class TestMapping {
     public String testGetParamsUsePOJO(User user) {
         System.out.println(user.toString());
         return "index1";
+    }
+
+    @RequestMapping("/testRequestScopeUseServlet")
+    public String testRequestScopeUseServlet(HttpServletRequest request) {
+        request.setAttribute("testRequestScope", "hello~~ Servlet(Request)");
+        return "getScopeValue";
+    }
+
+    @RequestMapping("/testRequestScopeUseModelAndView")
+    public ModelAndView testRequestScopeUseModelAndView() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("testRequestScope", "hello~~ ModelAndView(Request)");
+        mav.setViewName("getScopeValue");
+        return mav;
+    }
+
+    @RequestMapping("/testRequestScopeUseMap")
+    public String testRequestScopeUseMap(Map<String, Object> map) {
+        map.put("testRequestScope", "hello~~ Map(Request)");
+//        System.out.println(map.getClass().getName());
+        return "getScopeValue";
+    }
+
+    @RequestMapping("/testRequestScopeUseModelMap")
+    public String testRequestScopeUseModelMap(ModelMap map) {
+        map.put("testRequestScope", "hello~~ ModelMap(Request)");
+//        System.out.println(map.getClass().getName());
+        return "getScopeValue";
+    }
+
+    @RequestMapping("/testSessionScopeUseServlet")
+    public String testSessionScopeUseServlet(HttpSession session) {
+        session.setAttribute("testSessionScope", "hello~~ Servlet(Session)");
+        return "getScopeValue";
     }
 }
 
