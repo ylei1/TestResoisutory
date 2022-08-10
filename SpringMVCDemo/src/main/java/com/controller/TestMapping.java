@@ -13,50 +13,50 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping(value="/test")
+@RequestMapping(value="/testMapping")
 public class TestMapping {
 
     @RequestMapping(value="/testMethod", method= RequestMethod.GET)
     public String testMethod() {
-        return "index1";
+        return "success";
     }
 
     @RequestMapping(value="/testGetParams")
     public String testGetParams(String username, String password) {
         //形参需要和请求参数名对应,可以是部分请求参数，若多个请求参数名一致，可用数组接收(String[])
         //也可以使用注解定义：@RequestParam(String username)String username
-//        System.out.println(username+password);
-        return "index1";
+        System.out.println(username+password);
+        return "success";
     }
 
     @RequestMapping(value="/testCookie")
     public String testCookie(HttpServletRequest request, @CookieValue(value="JSESSIONID")String sessionId) {
         HttpSession session = request.getSession();
         System.out.println("JSESSIONID: " + sessionId);
-        return "index1";
+        return "success";
     }
 
     @RequestMapping(value="/testParams", params={"username"})
     public String testParams() {
-        return "index1";
+        return "success";
     }
 
     @RequestMapping(value="/testRestful/{id}")
     public String testRestful(@PathVariable("id")Integer id) {
-        return "index1";
+        return "success";
     }
 
     //Restful API无法私用HttpServletRequest获取请求参数
     @RequestMapping(value="/testRestful/{id}/{username}")
     public String testRestful(@PathVariable("id")Integer id, @PathVariable("username")String username) {
-        return "index1";
+        return "success";
     }
 
     //可以使用POJO接收请求参数，不存在的参数为类型默认值
     @RequestMapping(value="/testGetParamsUsePOJO")
     public String testGetParamsUsePOJO(User user) {
         System.out.println(user.toString());
-        return "index1";
+        return "success";
     }
 
     @RequestMapping("/testRequestScopeUseServlet")

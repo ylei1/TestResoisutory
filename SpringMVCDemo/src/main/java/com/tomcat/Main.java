@@ -21,7 +21,7 @@ public class Main {
         );
         ctx.setResources(resources);
         tomcat.start();
-        System.out.println("Start the server......");
+//        System.out.println("Start the server......");
         tomcat.getServer().await();
     }
 }

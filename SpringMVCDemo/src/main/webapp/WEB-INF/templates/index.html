@@ -7,23 +7,38 @@
 <body>
     <h1>Hello world!</h1>
     <a th:href="@{/testMapping}">测试</a>
-    <form th:action="@{/test/testMethod}" method="get">
+    <form th:action="@{/testMapping/testMethod}" method="get">
         <input type="submit" value="测试RequestMapping的Method属性（method=get）">
     </form>
-    <form th:action="@{/test/testMethod}" method="post">
+    <form th:action="@{/testMapping/testMethod}" method="post">
         <input type="submit" value="测试RequestMapping的Method属性（method=post）">
     </form>
-    <a th:href="@{/test/testParams?username=ylei}">测试RequestMapping的参数(username=ylei1)</a><br>
-    <a th:href="@{/test/testParams?password=12345}">测试RequestMapping的参数(password=12345)</a><br>
-    <a th:href="@{/test/testGetParams?username=ylei&password=12345}">测试获取请求参数(username=ylei1,password=12345)</a><br>
-    <a th:href="@{/test/testRestful/1}">测试Restful API</a><br>
-    <a th:href="@{/test/testRestful/1/ylei1}">测试Restful API(id+username)</a><br>
-    <a th:href="@{/test/testCookie}">测试Cookie</a><br>
-    <a th:href="@{/test/testGetParamsUsePOJO?username=ylei&password=12345}">测试通过POJO获取请求参数(username=ylei1,password=12345)</a><br>
-    <a th:href="@{/test/testRequestScopeUseServlet}">testRequestScopeUseServlet</a><br>
-    <a th:href="@{/test/testRequestScopeUseModelAndView}">testRequestScopeUseModelAndView</a><br>
-    <a th:href="@{/test/testRequestScopeUseMap}">testRequestScopeUseMap</a><br>
-    <a th:href="@{/test/testRequestScopeUseModelMap}">testRequestScopeUseModelMap</a><br>
-    <a th:href="@{/test/testSessionScopeUseServlet}">testSessionScopeUseServlet</a><br>
+    <p><=========================================TestMapping=============================================></p>
+    <a th:href="@{/testMapping/testParams?username=ylei}">测试RequestMapping的参数(username=ylei1)</a><br>
+    <a th:href="@{/testMapping/testParams?password=12345}">测试RequestMapping的参数(password=12345)</a><br>
+    <a th:href="@{/testMapping/testGetParams?username=ylei&password=12345}">测试获取请求参数(username=ylei1,password=12345)</a><br>
+    <a th:href="@{/testMapping/testRestful/1}">测试Restful API</a><br>
+    <a th:href="@{/testMapping/testRestful/1/ylei1}">测试Restful API(id+username)</a><br>
+    <a th:href="@{/testMapping/testCookie}">测试Cookie</a><br>
+    <a th:href="@{/testMapping/testGetParamsUsePOJO?username=ylei&password=12345}">测试通过POJO获取请求参数(username=ylei1,password=12345)</a><br>
+    <a th:href="@{/testMapping/testRequestScopeUseServlet}">testRequestScopeUseServlet</a><br>
+    <a th:href="@{/testMapping/testRequestScopeUseModelAndView}">testRequestScopeUseModelAndView</a><br>
+    <a th:href="@{/testMapping/testRequestScopeUseMap}">testRequestScopeUseMap</a><br>
+    <a th:href="@{/testMapping/testRequestScopeUseModelMap}">testRequestScopeUseModelMap</a><br>
+    <a th:href="@{/testMapping/testSessionScopeUseServlet}">testSessionScopeUseServlet</a><br>
+    <p><===========================================TestHTTP===============================================></p>
+    <form th:action="@{/testHTTP/testRequestBody}" method="post">
+        <input type="text" name="username" >
+        <input type="text" name="password">
+        <input type="submit" value="testRequestBody">
+    </form>
+    <form th:action="@{/testHTTP/testRequestEntity}" method="post">
+        <input type="text" name="username" >
+        <input type="text" name="password">
+        <input type="submit" value="testRequestEntity">
+    </form>
+    <a th:href="@{/testHTTP/testResponseUseServlet}">testResponseUseServlet</a><br>
+    <a th:href="@{/testHTTP/testResponseUseSpring}">testResponseUseSpring</a><br>
+    <a th:href="@{/testHTTP/testDownload}">testDownload</a><br>
 </body>
 </html>
